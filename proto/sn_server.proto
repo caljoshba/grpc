@@ -1,0 +1,25 @@
+syntax = "proto3";
+package sn;
+
+service SN {
+    rpc HasAccess (AccessRequest) returns (AccessResponse);
+    rpc AddAccess (AddAccessRequest) returns (AddAccessResponse);
+}
+
+message AccessRequest {
+    string user = 1;
+    string information_request = 2;
+}
+
+message AccessResponse {
+    bool has_access = 1;
+}
+
+message AddAccessRequest {
+    string user = 1;
+    string information_request = 2;
+}
+
+message AddAccessResponse {
+    bool approved = 1;
+}
